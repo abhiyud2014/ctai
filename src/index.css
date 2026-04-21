@@ -1,0 +1,173 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Modern EdTech Design System — CT & AI Curriculum
+   All colors MUST be HSL. */
+
+@layer base {
+  :root {
+    --background: 220 30% 98%;
+    --foreground: 224 47% 12%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 224 47% 12%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 224 47% 12%;
+
+    /* Indigo — primary brand */
+    --primary: 244 75% 58%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 250 90% 72%;
+
+    /* Teal — secondary accent */
+    --secondary: 174 72% 46%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 220 20% 95%;
+    --muted-foreground: 220 12% 42%;
+
+    /* Amber — playful accent */
+    --accent: 38 95% 58%;
+    --accent-foreground: 224 47% 12%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --success: 152 65% 42%;
+    --success-foreground: 0 0% 100%;
+
+    --border: 220 20% 90%;
+    --input: 220 20% 90%;
+    --ring: 244 75% 58%;
+
+    --radius: 0.875rem;
+
+    /* Pillar colors for the four CT pillars */
+    --pillar-decompose: 244 75% 58%;
+    --pillar-pattern: 174 72% 46%;
+    --pillar-abstract: 280 70% 60%;
+    --pillar-algorithm: 38 95% 58%;
+
+    /* Class grade gradient seeds */
+    --grade-3: 200 85% 55%;
+    --grade-4: 174 72% 46%;
+    --grade-5: 152 65% 50%;
+    --grade-6: 38 95% 58%;
+    --grade-7: 14 88% 60%;
+    --grade-8: 280 70% 60%;
+
+    /* Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(244 75% 58%) 0%, hsl(280 70% 60%) 50%, hsl(174 72% 46%) 100%);
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--primary-glow)) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(38 95% 58%) 0%, hsl(14 88% 60%) 100%);
+    --gradient-mesh: radial-gradient(at 20% 20%, hsl(244 75% 58% / 0.15) 0px, transparent 50%),
+                     radial-gradient(at 80% 0%, hsl(174 72% 46% / 0.15) 0px, transparent 50%),
+                     radial-gradient(at 0% 80%, hsl(280 70% 60% / 0.12) 0px, transparent 50%);
+    --gradient-card: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(220 30% 98%) 100%);
+
+    /* Shadows */
+    --shadow-soft: 0 2px 8px -2px hsl(244 40% 30% / 0.06), 0 4px 16px -4px hsl(244 40% 30% / 0.04);
+    --shadow-elegant: 0 10px 40px -12px hsl(244 75% 58% / 0.25);
+    --shadow-glow: 0 0 40px hsl(250 90% 72% / 0.4);
+    --shadow-card-hover: 0 20px 50px -20px hsl(244 60% 30% / 0.2);
+
+    /* Transitions */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+
+    --sidebar-background: 244 30% 99%;
+    --sidebar-foreground: 224 30% 25%;
+    --sidebar-primary: 244 75% 58%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 244 40% 95%;
+    --sidebar-accent-foreground: 244 75% 35%;
+    --sidebar-border: 220 20% 92%;
+    --sidebar-ring: 244 75% 58%;
+  }
+
+  .dark {
+    --background: 224 47% 6%;
+    --foreground: 220 30% 96%;
+    --card: 224 40% 10%;
+    --card-foreground: 220 30% 96%;
+    --popover: 224 40% 10%;
+    --popover-foreground: 220 30% 96%;
+    --primary: 250 90% 72%;
+    --primary-foreground: 224 47% 6%;
+    --primary-glow: 244 75% 58%;
+    --secondary: 174 72% 46%;
+    --secondary-foreground: 224 47% 6%;
+    --muted: 224 30% 16%;
+    --muted-foreground: 220 15% 65%;
+    --accent: 38 95% 58%;
+    --accent-foreground: 224 47% 6%;
+    --destructive: 0 70% 55%;
+    --destructive-foreground: 0 0% 100%;
+    --success: 152 60% 50%;
+    --success-foreground: 224 47% 6%;
+    --border: 224 30% 18%;
+    --input: 224 30% 18%;
+    --ring: 250 90% 72%;
+    --gradient-card: linear-gradient(180deg, hsl(224 40% 11%) 0%, hsl(224 47% 8%) 100%);
+    --shadow-soft: 0 2px 8px -2px hsl(0 0% 0% / 0.3);
+    --shadow-elegant: 0 10px 40px -12px hsl(244 75% 58% / 0.4);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "ss01", "cv11";
+  }
+  h1, h2, h3, h4 {
+    @apply font-display tracking-tight;
+  }
+}
+
+@layer components {
+  .gradient-text {
+    @apply bg-clip-text text-transparent;
+    background-image: var(--gradient-hero);
+  }
+  .mesh-bg {
+    background-image: var(--gradient-mesh);
+  }
+  .card-elevated {
+    @apply bg-card rounded-2xl border border-border/60 shadow-[var(--shadow-soft)] transition-[var(--transition-smooth)];
+  }
+  .card-elevated:hover {
+    @apply shadow-[var(--shadow-card-hover)] -translate-y-1;
+  }
+}
+
+@layer utilities {
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+  .animate-pulse-glow {
+    animation: pulse-glow 2.5s ease-in-out infinite;
+  }
+  @keyframes pulse-glow {
+    0%, 100% { box-shadow: 0 0 20px hsl(var(--primary) / 0.3); }
+    50% { box-shadow: 0 0 40px hsl(var(--primary) / 0.6); }
+  }
+  .animate-fade-up {
+    animation: fade-up 0.6s cubic-bezier(0.4, 0, 0.2, 1) both;
+  }
+  @keyframes fade-up {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+}
